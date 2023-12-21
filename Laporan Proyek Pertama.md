@@ -80,7 +80,7 @@ Dataset ini memiliki ringkasan data statistik sebagai berikut:
 
 Tujuan dari mengetahui sebaran data dari tiap variabel adalah mencari tahu data yang dikumpulkan lebih banyak tersebar di salah satu sisi atau persebaran yang normal. Berikut adalah sebaran data dari tiap variabel.
 
-![png](output_38_0.png)
+![png](assets/Data_distribution.png)
 
 Ternyata, sebaran dari tiap atribut cenderung condong ke salah satu sisi. Dengan demikian pada tahapan normalisasi,  diperlukan penggunaan metode Standardisasi.
 
@@ -88,7 +88,7 @@ Ternyata, sebaran dari tiap atribut cenderung condong ke salah satu sisi. Dengan
 
 Sebelum menggunakan atribut-atribut yang ada untuk melatih model, diperlukan mengetahui korelasi antar variabel agar variabel yang digunakan untuk melatih model adalah variabel yang memang memiliki pengaruh dengan target. Berikut adalah korelasi antar variabel.
 
-![png](output_41_1.png)
+![png](assets/Variable_correlation.png)
 
 Dari grafik heatmap di atas, dapat disimpulkan bahwa:
 1. Hubungan tiap variabel, selain wall area dan glazing area, terhadap heating load dan coolling load memiliki korelasi di atas 60% semua. 
@@ -98,16 +98,16 @@ Dari grafik heatmap di atas, dapat disimpulkan bahwa:
 
 Setelah itu, cek korelasi variabel kategori dengan heating load dan cooling load.
     
-![png](output_44_0.png)
+![png](assets/Orientation_vs_target.png)
     
 
 Dari grafik batang di atas, dapat disimpulkan bahwa tiap kategori memiliki nilai yang tidak jauh beda. Artinya, mau bagaimanapun orientasi dari bangunan tersebut, heating load dan cooling load yang dibutuhkan sama saja. Dengan demikian, variabel ini dapat dihapus untuk mengurangi dimensionalitas.
 
 Sedangkan untuk Glazing_area_distribution, berikut adalah diagramnya.
     
-![png](output_47_0.png)
+![png](assets/Glazing_area_distribution_vs_Heating_load.png)
       
-![png](output_48_0.png)
+![png](assets/Glazing_area_distribution_vs_Cooling_load.png)
 
 Selain 0, semua kategori memiliki pola yang identik. Dengan demikian, kategori ini dapat diubah menjadi kategori biner saja, yaitu 0 mewakili glazing area distribution 0, dan 1 mewakili semua glazing area distribution selain 0. Hal ini dilakukan untuk mengurangi dimensionalitas.
 
@@ -263,6 +263,6 @@ Keterangan:
 
 Saatnya memeriksa nilai MAE dari tiap model.
 
-![png](output_122_0.png)
+![png](assets/MAE.png)
     
 Dari grafik di atas, ternyata Random Forest memiliki nilai MAE yang terkecil, baik dari segi Heating_load maupun Cooling_load. Artinya, model Random Forest dapat memprediksi nilai Heating_load dan Cooling_load dengan nilai error yang lebih kecil. Dengan demikian, untuk menyelesaikan permasalahan ini dapat menggunakan model Random Forest.
